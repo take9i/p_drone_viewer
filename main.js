@@ -10,11 +10,11 @@ const viewer = new C.Viewer("cesiumContainer", {
   //   url: "http://localhost:7777/services/maptiles/tiles/{z}/{x}/{y}.png",
   //   maximumLevel: 16,
   // }),
-  // terrainProvider: C.createWorldTerrain(),
-  terrainProvider: new C.CesiumTerrainProvider({
-    url: C.IonResource.fromAssetId(770371), // pleatau terrain
-    requestVertexNormals: true,
-  }),
+  terrainProvider: C.createWorldTerrain(),
+  // terrainProvider: new C.CesiumTerrainProvider({
+  //   url: C.IonResource.fromAssetId(770371), // pleatau terrain
+  //   requestVertexNormals: true,
+  // }),
   requestVertexNormals: true,
   animation: false,
   baseLayerPicker: false,
@@ -45,10 +45,10 @@ viewer.clock.multiplier = 1;
 viewer.clock.shouldAnimate = true;
 viewer.clock.currentTime.secondsOfDay = (8 + 3) * 3600;
 
-// viewer.scene.primitives.add(C.createOsmBuildings());
-viewer.scene.primitives.add(
-  new C.Cesium3DTileset({ url: "./3dtiles/14382_hakone-machi_building/bldg_notexture/tileset.json" })
-);
+viewer.scene.primitives.add(C.createOsmBuildings());
+// viewer.scene.primitives.add(
+//   new C.Cesium3DTileset({ url: "./3dtiles/14382_hakone-machi_building/bldg_notexture/tileset.json" })
+// );
 
 viewer.camera.flyTo({
   destination: new C.Cartesian3(-3943063.736175449, 3414581.6352823335, 3658893.0310073597),
